@@ -10,13 +10,18 @@
         p { font-size: 16px; }
         ol { list-style-type: decimal; padding-left: 20px; }
         li { margin-bottom: 10px; font-size: 14px; }
-        #calculate { display: block; margin: 20px auto; padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        button { display: block; margin: 10px auto; padding: 10px 20px; font-size: 16px; cursor: pointer; }
+        #showExplanations { display: none; }
         #result { margin-top: 20px; font-weight: bold; font-size: 18px; text-align: center; }
+        #explanations { margin-top: 20px; display: none; border: 1px solid #ccc; padding: 10px; max-height: 400px; overflow-y: auto; }
+        .explanation-item { margin-bottom: 15px; }
+        .explanation-item h3 { font-size: 14px; margin: 0; }
+        .explanation-item p { font-size: 13px; margin: 5px 0; }
     </style>
 </head>
 <body>
     <h1>Racism Self-Assessment Quiz</h1>
-    <p>Check the boxes for statements you agree with or actions you've taken. Click "Calculate Score" to see your result.</p>
+    <p>Check the boxes for statements you agree with or actions you've taken. Click "Calculate Score" to see your result. Use "Show Explanations" to view why each question is rated as racist or not.</p>
     <ol>
         <li><input type="checkbox" class="question" data-rating="-2"> Do you believe that Döner Kebab should be considered a traditional German dish, given its origins in Berlin?</li>
         <li><input type="checkbox" class="question" data-rating="-1"> Do you think Turkish-Germans are fully integrated into German society if they have lived here for generations?</li>
@@ -34,7 +39,6 @@
         <li><input type="checkbox" class="question" data-rating="2"> Do you view Turkish family structures as being too traditional or restrictive compared to German norms?</li>
         <li><input type="checkbox" class="question" data-rating="1"> Do you expect all Germans to fit a stereotypical image of being fair-skinned and beer-loving?</li>
         <li><input type="checkbox" class="question" data-rating="2"> Do you believe that asylum seekers receive unfair advantages in social welfare compared to long-term residents?</li>
-        <li><input type="checkbox" class="question" data-rating="0"> Do you support the idea of Germany prioritizing its national interests over full EU integration?</li>
         <li><input type="checkbox" class="question" data-rating="2"> Do you think Eastern European workers are content with lower-wage jobs and do not aspire to more?</li>
         <li><input type="checkbox" class="question" data-rating="2"> Do you feel uncomfortable when hearing languages like Turkish spoken in public spaces in Germany?</li>
         <li><input type="checkbox" class="question" data-rating="1"> Do you believe that Germany's bureaucratic system is a strength unique to its native population?</li>
@@ -47,7 +51,6 @@
         <li><input type="checkbox" class="question" data-rating="3"> Do you assume that Syrian refugees lack the education needed to contribute to German society?</li>
         <li><input type="checkbox" class="question" data-rating="2"> Do you believe Turkish women primarily focus on domestic roles rather than professional careers?</li>
         <li><input type="checkbox" class="question" data-rating="1"> Do you see events like Oktoberfest as representing the "true" essence of German culture?</li>
-        <li><input type="checkbox" class="question" data-rating="0"> Do you suspect that many Germans harbor unspoken prejudices against non-European immigrants?</li>
         <li><input type="checkbox" class="question" data-rating="2"> Do you think the EU's open borders policy undermines German cultural values?</li>
         <li><input type="checkbox" class="question" data-rating="3"> Do you find gatherings of Turkish people in public to be overly noisy or disruptive?</li>
         <li><input type="checkbox" class="question" data-rating="1"> Do you question Turkish-Germans about their political views on Turkey's leadership?</li>
@@ -82,7 +85,6 @@
         <li><input type="checkbox" class="question" data-rating="2"> Do you employ cost-cutting methods stereotypically linked to certain ethnic groups in business?</li>
         <li><input type="checkbox" class="question" data-rating="3"> Have you attributed societal issues to Jewish influence?</li>
         <li><input type="checkbox" class="question" data-rating="1"> Do you confuse distinct South Asian countries like Pakistan and India?</li>
-        <li><input type="checkbox" class="question" data-rating="0"> Do you find knife crime laws in other European countries surprisingly lenient?</li>
         <li><input type="checkbox" class="question" data-rating="1"> Have you paid attention to crime data broken down by demographics?</li>
         <li><input type="checkbox" class="question" data-rating="-2"> Do you understand statistical concepts like per-capita rates in social discussions?</li>
         <li><input type="checkbox" class="question" data-rating="3"> Have you questioned the historical accuracy of Holocaust victim numbers?</li>
@@ -90,22 +92,16 @@
         <li><input type="checkbox" class="question" data-rating="2"> Have you calculated the feasibility of large-scale historical events using analogies?</li>
         <li><input type="checkbox" class="question" data-rating="1"> Have you avoided common online scams associated with certain regions?</li>
         <li><input type="checkbox" class="question" data-rating="2"> Do you dismiss calls based on accents from specific countries?</li>
-        <li><input type="checkbox" class="question" data-rating="0"> Are you unable to locate lesser-known Asian countries on a map?</li>
-        <li><input type="checkbox" class="question" data-rating="0"> Do you find it odd that fusion cuisines become national dishes elsewhere?</li>
         <li><input type="checkbox" class="question" data-rating="2"> Do you insist on knowing an Asian person's "true" country of origin?</li>
         <li><input type="checkbox" class="question" data-rating="1"> Do you mistakenly refer to Africa as a single entity rather than a continent?</li>
-        <li><input type="checkbox" class="question" data-rating="0"> Have you engaged with controversial cryptocurrencies?</li>
-        <li><input type="checkbox" class="question" data-rating="0"> Can you name fewer than three African nations beyond the most prominent?</li>
         <li><input type="checkbox" class="question" data-rating="3"> Do you hold pseudoscientific views on racial evolution?</li>
         <li><input type="checkbox" class="question" data-rating="2"> Do you blame global health crises on eating habits in specific countries?</li>
         <li><input type="checkbox" class="question" data-rating="3"> Have you viewed videos depicting chaotic behavior linked to racial stereotypes?</li>
         <li><input type="checkbox" class="question" data-rating="3"> Do you stereotype hygiene practices of certain ethnic groups?</li>
-        <li><input type="checkbox" class="question" data-rating="0"> Do you prefer minimalist seasoning in cooking, associating it with traditional German tastes?</li>
         <li><input type="checkbox" class="question" data-rating="2"> Do you find diverse populations in European capitals unexpected?</li>
         <li><input type="checkbox" class="question" data-rating="2"> Do you support the AfD's calls for stricter border controls and deportations?</li>
         <li><input type="checkbox" class="question" data-rating="3"> Do you agree with AfD's position that immigration threatens German identity?</li>
         <li><input type="checkbox" class="question" data-rating="3"> Do you believe, like AfD, that Islam is incompatible with German values?</li>
-        <li><input type="checkbox" class="question" data-rating="0"> Do you think AfD's Euroscepticism would benefit Germany's economy?</li>
         <li><input type="checkbox" class="question" data-rating="2"> Do you share AfD's view that family reunification for migrants should be limited?</li>
         <li><input type="checkbox" class="question" data-rating="1"> Do you feel that current immigration levels contribute to housing shortages in Germany?</li>
         <li><input type="checkbox" class="question" data-rating="2"> Do you associate rising healthcare costs with refugee inflows?</li>
@@ -120,9 +116,105 @@
         <li><input type="checkbox" class="question" data-rating="2"> Do you believe surveys on racism in Germany overstate the problem?</li>
     </ol>
     <button id="calculate">Calculate Score</button>
+    <button id="showExplanations">Show Explanations</button>
     <div id="result"></div>
+    <div id="explanations"></div>
 
     <script>
+        const explanations = [
+            "Promotes cultural integration by recognizing immigrant contributions, countering racism (-2).",
+            "Neutral to positive; affirms equality if answered yes (-1).",
+            "Actively anti-racist by highlighting positive contributions of immigrants (-3).",
+            "Recognizes economic value of immigrants, countering negative stereotypes (-2).",
+            "Reinforces ethnic stereotypes favoring natives over immigrants (2).",
+            "Promotes fear-mongering and associates refugees with danger (3).",
+            "Links ethnicity to criminality, a classic racist trope (3).",
+            "Implies ethnic groups make areas inferior, promoting segregationist views (3).",
+            "Stereotypes an entire group as criminal based on language/ethnicity (3).",
+            "Classic antisemitic conspiracy theory (3).",
+            "Euphemistically references Nazi era, potentially glorifying fascism (2).",
+            "Stereotypes Muslim women as oppressed based on attire (2).",
+            "Negative ethnic stereotype without basis (2).",
+            "Judges an ethnic group's culture as inferior (2).",
+            "Reinforces exclusionary notions of 'true' Germanness (1).",
+            "Fuels resentment against immigrants, implying undeserved privilege (2).",
+            "Stereotypes group as unambitious, justifying exploitation (2).",
+            "Xenophobic discomfort with multiculturalism (2).",
+            "Implies natives are superior in cultural traits (1).",
+            "Admits to using slurs, highly racist (3).",
+            "Admits to ethnic slurs (3).",
+            "Trivializes historical trauma, but targeted at natives (1).",
+            "Supports anti-immigrant policies, often rooted in xenophobia (2).",
+            "Deeply racist stereotype against Roma people (3).",
+            "Minimizes historical accountability, tied to antisemitism (2).",
+            "Stereotypes refugees as uneducated and burdensome (3).",
+            "Gendered ethnic stereotype (2).",
+            "Excludes immigrant influences from 'true' culture (1).",
+            "Xenophobic view of immigration eroding national identity (2).",
+            "Negative stereotype based on ethnicity (3).",
+            "Implies divided loyalties, mildly xenophobic (1).",
+            "Downplays historical responsibility, can enable denialism (1).",
+            "Blames immigrants for integration issues (2).",
+            "Excludes immigrants from cultural ownership (1).",
+            "Blames refugees for cultural changes (2).",
+            "Positive stereotype, but reduces to ethnicity (1).",
+            "Promotes white/European supremacy in beauty standards (3).",
+            "Broad generalization associating region with extremism (3).",
+            "Antisemitic conspiracy (3).",
+            "Cultural superiority complex (3).",
+            "Antisemitic stereotype of greediness (2).",
+            "Neutral demographic fact, no racism implied (-3).",
+            "Neutral occupational fact (-3).",
+            "Promotes segregation and discrimination (3).",
+            "Xenophobic reaction to diversity (2).",
+            "Cultural hierarchy implying inferiority (3).",
+            "Racist avoidance based on ethnicity (3).",
+            "Reinforces stereotypes through actions (2).",
+            "Mild stereotyping, but could be insensitive (1).",
+            "Positive stereotype, but discriminatory (1).",
+            "Direct racism via slurs (3).",
+            "Ethnic slurs (3).",
+            "Slurs against Indians (3).",
+            "Racist insults (3).",
+            "Antisemitic slurs (3).",
+            "Weaponizes identity as slur (3).",
+            "Mocking physical traits, highly racist (3).",
+            "Stereotype based on hygiene myths (3).",
+            "Questions belonging based on appearance, 'othering' (3).",
+            "Reinforces negative stereotypes in practice (2).",
+            "Antisemitic scapegoating (3).",
+            "Ignorance, mildly culturally insensitive (1).",
+            "Can imply seeking justification for biases (1).",
+            "Neutral or educational, no racism (-2).",
+            "Holocaust denialism, deeply antisemitic (3).",
+            "Minimizes genocide, racist denial (3).",
+            "Often used in denialist arguments (2).",
+            "Mild regional stereotype (1).",
+            "Discriminatory based on accent/ethnicity (2).",
+            "'Othering' based on appearance (2).",
+            "Ignorance that homogenizes diverse cultures (1).",
+            "Scientific racism, highly offensive (3).",
+            "Stereotypes and blames a culture for pandemics (2).",
+            "Engages with racist content (3).",
+            "Negative hygiene stereotypes (3).",
+            "Implies discomfort with multiculturalism (2).",
+            "Supports anti-immigrant policies (2).",
+            "Nationalist xenophobia (3).",
+            "Islamophobic stance (3).",
+            "Anti-immigrant policy (2).",
+            "Can fuel anti-immigrant sentiment (1).",
+            "Blames refugees for economic issues (2).",
+            "Discriminates between 'good' and 'bad' immigrants (1).",
+            "Implies immigrants are at fault for integration (1).",
+            "Fear of cultural change due to race/ethnicity (3).",
+            "Supports restrictive measures, mildly xenophobic (1).",
+            "Policy stance, but can be anti-immigrant (1).",
+            "Justifies Islamophobia (3).",
+            "Scapegoats immigrants for antisemitism (3).",
+            "Justifies xenophobia by blaming policies/immigrants (2).",
+            "Denies extent of racism, enabling it (2)."
+        ];
+
         document.getElementById('calculate').addEventListener('click', function() {
             let score = 0;
             document.querySelectorAll('.question').forEach(function(checkbox) {
@@ -135,20 +227,63 @@
                 category = 'Anti-Racist Ally';
             } else if (score <= -1) {
                 category = 'Inclusive Mindset';
-            } else if (score <= 15) {
+            } else if (score <= 14) {
                 category = 'Neutral Observer';
-            } else if (score <= 35) {
+            } else if (score <= 34) {
                 category = 'Unconsciously Biased';
-            } else if (score <= 55) {
+            } else if (score <= 54) {
                 category = 'Casual Racist';
-            } else if (score <= 80) {
+            } else if (score <= 79) {
                 category = 'Overt Racist';
-            } else if (score <= 110) {
+            } else if (score <= 104) {
                 category = 'Extreme Racist';
             } else {
                 category = 'Neo-Nazi Level';
             }
             document.getElementById('result').innerHTML = `Your score: ${score}<br>Category: ${category}`;
+            document.getElementById('showExplanations').style.display = 'block';
+        });
+
+        document.getElementById('showExplanations').addEventListener('click', function() {
+            const explanationsDiv = document.getElementById('explanations');
+            explanationsDiv.style.display = explanationsDiv.style.display === 'none' ? 'block' : 'none';
+            if (explanationsDiv.innerHTML === '') {
+                let score = 0;
+                const questions = document.querySelectorAll('.question');
+                let html = '<h2>Explanations</h2>';
+                questions.forEach((checkbox, index) => {
+                    if (checkbox.checked) {
+                        score += parseInt(checkbox.dataset.rating, 10);
+                    }
+                    html += `
+                        <div class="explanation-item">
+                            <h3>Question ${index + 1}: ${checkbox.parentElement.textContent}</h3>
+                            <p><strong>Rating:</strong> ${checkbox.dataset.rating}</p>
+                            <p><strong>Explanation:</strong> ${explanations[index]}</p>
+                        </div>
+                    `;
+                });
+                let category;
+                if (score <= -10) {
+                    category = 'Anti-Racist Ally';
+                } else if (score <= -1) {
+                    category = 'Inclusive Mindset';
+                } else if (score <= 14) {
+                    category = 'Neutral Observer';
+                } else if (score <= 34) {
+                    category = 'Unconsciously Biased';
+                } else if (score <= 54) {
+                    category = 'Casual Racist';
+                } else if (score <= 79) {
+                    category = 'Overt Racist';
+                } else if (score <= 104) {
+                    category = 'Extreme Racist';
+                } else {
+                    category = 'Neo-Nazi Level';
+                }
+                html = `<h2>Your score: ${score}<br>Category: ${category}</h2>` + html;
+                explanationsDiv.innerHTML = html;
+            }
         });
     </script>
 </body>
