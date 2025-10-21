@@ -13,208 +13,554 @@
         button { display: block; margin: 10px auto; padding: 10px 20px; font-size: 16px; cursor: pointer; }
         #showExplanations { display: none; }
         #result { margin-top: 20px; font-weight: bold; font-size: 18px; text-align: center; }
-        #explanations { margin-top: 20px; display: none; border: 1px solid #ccc; padding: 10px; max-height: 400px; overflow-y: auto; }
-        .explanation-item { margin-bottom: 15px; }
-        .explanation-item h3 { font-size: 14px; margin: 0; }
-        .explanation-item p { font-size: 13px; margin: 5px 0; }
+        .explanation-item { display: none; margin-left: 20px; padding: 8px; border-left: 2px solid #ccc; font-size: 13px; color: #555; }
+        .explanation-item p { margin: 5px 0; }
     </style>
 </head>
 <body>
     <h1>Racism Self-Assessment Quiz</h1>
     <p>Check the boxes for statements you agree with or actions you've taken. Click "Calculate Score" to see your result. Use "Show Explanations" to view why each question is rated as racist or not.</p>
     <ol>
-        <li><input type="checkbox" class="question" data-rating="-2"> Do you believe that Döner Kebab should be considered a traditional German dish, given its origins in Berlin?</li>
-        <li><input type="checkbox" class="question" data-rating="-1"> Do you think Turkish-Germans are fully integrated into German society if they have lived here for generations?</li>
-        <li><input type="checkbox" class="question" data-rating="-3"> Do you agree that immigrants from Turkey contribute positively to German cuisine and culture?</li>
-        <li><input type="checkbox" class="question" data-rating="-2"> Do you feel that Polish immigrants are essential to sectors like construction and agriculture in Germany?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you believe that punctuality and efficiency are traits more commonly associated with native Germans than with immigrants?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you think that refugees from conflict zones like Syria pose a security risk to German communities?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you associate higher crime rates in certain areas with the presence of Eastern European migrants?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you consider neighborhoods with high Turkish populations, such as Kreuzberg, to be less desirable places to live?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you assume that Russian-speaking immigrants in Germany have ties to organized crime networks?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you believe that Jewish individuals hold disproportionate influence in German media or finance?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you think that aspects of Germany's historical discipline from the 20th century should be admired today?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you assume that women wearing headscarves are not fully emancipated or integrated into modern society?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you stereotype Polish people as having a higher tendency toward alcohol consumption?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you view Turkish family structures as being too traditional or restrictive compared to German norms?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you expect all Germans to fit a stereotypical image of being fair-skinned and beer-loving?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you believe that asylum seekers receive unfair advantages in social welfare compared to long-term residents?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you think Eastern European workers are content with lower-wage jobs and do not aspire to more?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you feel uncomfortable when hearing languages like Turkish spoken in public spaces in Germany?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you believe that Germany's bureaucratic system is a strength unique to its native population?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Have you ever used derogatory terms for Turkish people, even in private conversations?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Have you referred to Polish individuals using outdated or offensive nicknames?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you jokingly call strict Germans "Nazis" without considering the historical sensitivity?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you agree with slogans calling for stricter controls on foreigners entering Germany?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you view the Roma community as more likely to engage in antisocial behavior?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you feel that Germany's role in the Holocaust is overemphasized in modern education?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you assume that Syrian refugees lack the education needed to contribute to German society?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you believe Turkish women primarily focus on domestic roles rather than professional careers?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you see events like Oktoberfest as representing the "true" essence of German culture?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you think the EU's open borders policy undermines German cultural values?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you find gatherings of Turkish people in public to be overly noisy or disruptive?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you question Turkish-Germans about their political views on Turkey's leadership?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you believe Germany should move past collective guilt for events of World War II?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you think guest workers from the 1960s and 1970s failed to fully assimilate into German life?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you associate traditional German foods like Sauerkraut exclusively with native-born citizens?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you worry that refugee arrivals have negatively impacted traditional German festivals?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you believe Asians excel in mathematics due to cultural rather than individual factors?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you consider European features as the ideal standard of beauty in Germany?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you think most people from the Middle East have extremist views?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you agree that Jewish influence dominates global finance and media?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you stereotype Middle Eastern daily life as primitive or outdated?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you assume Jewish people are particularly skilled at negotiating prices?</li>
-        <li><input type="checkbox" class="question" data-rating="-3"> Do you live outside of major urban areas like Berlin or Munich?</li>
-        <li><input type="checkbox" class="question" data-rating="-3"> Do you hold a manual or trade-based job?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you believe some neighborhoods are not suitable for certain ethnic groups?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Does hearing foreign languages in your vicinity make you uneasy?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you think some cultures lag behind others in terms of development?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you avoid certain districts based on their demographic makeup?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Have you offered stereotypical foods to someone based on their ethnic background?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Have you made assumptions about dietary restrictions for Arab individuals?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you preferentially select Asian classmates for academic projects assuming superior skills?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Have you used slurs against Asian people?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Have you employed derogatory terms for Vietnamese or Korean individuals?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Have you used offensive nicknames for people from India?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Have you referred to Arab people with desert-related insults?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Have you used antisemitic slurs against Jewish individuals?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you use "Jew" in a negative or stereotypical context?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Have you mimicked physical features associated with Asian heritage?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you avoid close proximity to groups from South Asia due to perceived odors?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> When someone says they are from Germany, do you probe further about their family's origins if they appear non-European?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you employ cost-cutting methods stereotypically linked to certain ethnic groups in business?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Have you attributed societal issues to Jewish influence?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you confuse distinct South Asian countries like Pakistan and India?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Have you paid attention to crime data broken down by demographics?</li>
-        <li><input type="checkbox" class="question" data-rating="-2"> Do you understand statistical concepts like per-capita rates in social discussions?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Have you questioned the historical accuracy of Holocaust victim numbers?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you believe the scale of certain historical atrocities is exaggerated?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Have you calculated the feasibility of large-scale historical events using analogies?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Have you avoided common online scams associated with certain regions?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you dismiss calls based on accents from specific countries?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you insist on knowing an Asian person's "true" country of origin?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you mistakenly refer to Africa as a single entity rather than a continent?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you hold pseudoscientific views on racial evolution?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you blame global health crises on eating habits in specific countries?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Have you viewed videos depicting chaotic behavior linked to racial stereotypes?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you stereotype hygiene practices of certain ethnic groups?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you find diverse populations in European capitals unexpected?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you support the AfD's calls for stricter border controls and deportations?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you agree with AfD's position that immigration threatens German identity?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you believe, like AfD, that Islam is incompatible with German values?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you share AfD's view that family reunification for migrants should be limited?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you feel that current immigration levels contribute to housing shortages in Germany?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you associate rising healthcare costs with refugee inflows?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you believe skilled migration should be prioritized over asylum seekers?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you think integration courses for immigrants are insufficiently enforced?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you worry about cultural dilution from non-European migration?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you support temporary border checks as implemented in 2025?</li>
-        <li><input type="checkbox" class="question" data-rating="1"> Do you believe deportations should be increased for rejected asylum applicants?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you think anti-Muslim sentiment is justified by security concerns?</li>
-        <li><input type="checkbox" class="question" data-rating="3"> Do you agree that antisemitism is rising due to certain immigrant groups?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you feel that xenophobic attitudes are a response to failed integration policies?</li>
-        <li><input type="checkbox" class="question" data-rating="2"> Do you believe surveys on racism in Germany overstate the problem?</li>
+        <li><input type="checkbox" class="question" data-rating="-2"> Do you believe that Döner Kebab should be considered a traditional German dish, given its origins in Berlin?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> -2</p>
+                <p><strong>Explanation:</strong> Promotes cultural integration by recognizing immigrant contributions, countering racism.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="-1"> Do you think Turkish-Germans are fully integrated into German society if they have lived here for generations?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> -1</p>
+                <p><strong>Explanation:</strong> Affirms equality and integration, reducing prejudice.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="-3"> Do you agree that immigrants from Turkey contribute positively to German cuisine and culture?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> -3</p>
+                <p><strong>Explanation:</strong> Actively anti-racist by valuing immigrant contributions.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="-2"> Do you feel that Polish immigrants are essential to sectors like construction and agriculture in Germany?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> -2</p>
+                <p><strong>Explanation:</strong> Recognizes economic value of immigrants, countering negative stereotypes.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you believe that punctuality and efficiency are traits more common among native Germans than immigrants?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Reinforces ethnic stereotypes favoring natives over immigrants.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you think refugees from conflict zones like Syria pose a security risk to German communities?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Promotes fear-mongering by associating refugees with danger.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you associate higher crime rates in certain areas with the presence of Eastern European migrants?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Links ethnicity to criminality, a classic racist trope.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you consider neighborhoods with high Turkish populations, like Kreuzberg, less desirable to live in?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Implies ethnic groups make areas inferior, promoting segregation.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you assume Russian-speaking immigrants in Germany are often linked to organized crime?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Stereotypes a group as criminal based on language/ethnicity.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you believe Jewish individuals have excessive influence in German media or finance?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Classic antisemitic conspiracy theory.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you admire aspects of Germany's strict historical discipline from the Nazi era?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Risks glorifying fascist history, tied to racism.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you assume women wearing headscarves are less emancipated or integrated into German society?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Stereotypes Muslim women as oppressed based on attire.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you stereotype Polish people as more likely to excessively consume alcohol?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Negative ethnic stereotype without basis.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you view Turkish family structures as overly traditional compared to German norms?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Judges an ethnic group's culture as inferior.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you expect all Germans to fit a stereotypical image of being fair-skinned and beer-loving?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Reinforces exclusionary notions of 'true' Germanness.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you believe asylum seekers receive unfair advantages in social welfare over long-term residents?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Fuels resentment against immigrants, implying undeserved privilege.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you think Eastern European workers are content with low-wage jobs and lack ambition?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Stereotypes group as unambitious, justifying exploitation.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you feel uneasy hearing languages like Turkish spoken in public spaces in Germany?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Xenophobic discomfort with multiculturalism.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you believe Germany's bureaucratic efficiency is unique to its native population?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Implies natives are superior in cultural traits.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Have you used derogatory terms for Turkish people, even in private conversations?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Admits to using slurs, highly racist.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Have you used offensive nicknames for Polish individuals?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Admits to ethnic slurs.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you jokingly call strict Germans "Nazis" without considering historical sensitivity?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Trivializes historical trauma, though targeted at natives.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you support slogans calling for stricter controls on foreigners entering Germany?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Supports anti-immigrant policies, often rooted in xenophobia.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you view Roma people as more likely to engage in antisocial behavior?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Deeply racist stereotype against Roma people.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you feel Germany's role in the Holocaust is overemphasized in modern education?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Minimizes historical accountability, tied to antisemitism.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you assume Syrian refugees lack the education to contribute to German society?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Stereotypes refugees as uneducated and burdensome.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you believe Turkish women mainly focus on domestic roles rather than careers?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Gendered ethnic stereotype.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you see events like Oktoberfest as the "true" essence of German culture?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Excludes immigrant influences from cultural identity.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you think the EU's open borders policy undermines German cultural values?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Xenophobic view of immigration eroding national identity.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you find public gatherings of Turkish people overly noisy or disruptive?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Negative stereotype based on ethnicity.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you question Turkish-Germans about their political views on Turkey's leadership?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Implies divided loyalties, mildly xenophobic.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you believe Germany should move past collective guilt for World War II?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Downplays historical responsibility, can enable denialism.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you think guest workers from the 1960s and 1970s failed to fully assimilate?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Blames immigrants for integration issues.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you associate foods like Sauerkraut only with native-born Germans?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Excludes immigrants from cultural ownership.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you worry that refugees negatively impact traditional German festivals?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Blames refugees for cultural changes.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you believe Asians excel in mathematics due to cultural factors?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Positive stereotype, but reduces to ethnicity.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you consider European features the ideal standard of beauty in Germany?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Promotes white/European supremacy in beauty standards.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you think most Middle Eastern people hold extremist views?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Broad generalization associating region with extremism.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you believe Jewish people dominate global finance and media?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Antisemitic conspiracy.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you stereotype Middle Eastern daily life as primitive or outdated?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Cultural superiority complex.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you assume Jewish people are particularly skilled at negotiating prices?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Antisemitic stereotype of greediness.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="-3"> Do you live outside of major urban areas like Berlin or Munich?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> -3</p>
+                <p><strong>Explanation:</strong> Neutral demographic fact, no racism implied.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="-3"> Do you hold a manual or trade-based job?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> -3</p>
+                <p><strong>Explanation:</strong> Neutral occupational fact.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you believe some neighborhoods are unsuitable for certain ethnic groups?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Promotes segregation and discrimination.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you feel uneasy hearing foreign languages in your vicinity?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Xenophobic reaction to diversity.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you think some cultures are less developed than others?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Cultural hierarchy implying inferiority.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you avoid certain districts because of their ethnic demographics?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Racist avoidance based on ethnicity.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Have you offered foods to someone based on ethnic stereotypes?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Reinforces stereotypes through actions.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Have you assumed dietary restrictions for Arab individuals based on their ethnicity?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Mild stereotyping, potentially insensitive.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you choose Asian classmates for projects assuming they excel academically?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Positive stereotype, but discriminatory.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Have you used racial slurs against Asian people?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Direct racism via slurs.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Have you used derogatory terms for Vietnamese or Korean individuals?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Ethnic slurs.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Have you used offensive nicknames for people from India?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Slurs against Indians.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Have you used desert-related insults for Arab people?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Racist insults.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Have you used antisemitic slurs against Jewish individuals?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Antisemitic slurs.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you use "Jew" in a negative or stereotypical way?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Weaponizes identity as a slur.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Have you mimicked physical features associated with Asian heritage?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Mocking physical traits, highly racist.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you avoid South Asian groups due to perceived hygiene issues?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Stereotype based on hygiene myths.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you question non-European-looking Germans about their family's origins?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Questions belonging based on appearance, 'othering'.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you use cost-cutting methods stereotypically linked to certain ethnic groups?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Reinforces negative stereotypes in practice.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Have you blamed societal issues on Jewish influence?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Antisemitic scapegoating.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you assume people from South Asian countries like Pakistan or India share the same culture or identity?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Stereotypes diverse cultures as uniform, showing ignorance.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you focus on crime statistics by ethnicity to support negative views about certain groups?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Seeks data to justify biases, implying prejudice.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="-2"> Do you understand statistical concepts like per-capita rates in discussions about social issues?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> -2</p>
+                <p><strong>Explanation:</strong> Promotes informed discussion, reducing biased assumptions.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Have you questioned the feasibility of the Holocaust using your own calculations or analogies?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Holocaust denialism, deeply antisemitic.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you believe the scale of the Holocaust or other atrocities is exaggerated?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Minimizes genocide, racist denial.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you dismiss phone calls based on accents from specific countries?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Discriminatory based on accent/ethnicity.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you insist on knowing an Asian person's country of origin, assuming they’re not German?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> 'Othering' based on appearance.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you treat African cultures as a single, uniform group rather than diverse nations?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Stereotypes diverse cultures as uniform, showing ignorance.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you believe in pseudoscientific theories about racial differences in evolution?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Scientific racism, highly offensive.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you believe global health crises like COVID-19 are caused by cultural practices in Asian countries?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Stereotypes and blames a culture for pandemics.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Have you watched videos linking chaotic behavior to racial stereotypes?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Engages with racist content.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you stereotype the hygiene practices of certain ethnic groups as inferior?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Negative hygiene stereotypes.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Are you surprised by diverse populations in European capitals like Berlin?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Implies discomfort with multiculturalism.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you support AfD’s calls for stricter border controls and deportations?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Supports anti-immigrant policies.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you agree with AfD that immigration threatens German identity?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Nationalist xenophobia.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you believe, like AfD, that Islam is incompatible with German values?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Islamophobic stance.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you support AfD’s view that family reunification for migrants should be limited?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Anti-immigrant policy.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you believe current immigration levels cause housing shortages in Germany?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Can fuel anti-immigrant sentiment.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you associate rising healthcare costs with refugee inflows?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Blames refugees for economic issues.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you believe skilled migration should be prioritized over asylum seekers?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Discriminates between 'good' and 'bad' immigrants.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you think integration courses for immigrants are insufficiently enforced?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Implies immigrants are at fault for integration.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you worry about cultural dilution from non-European migration?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Fear of cultural change due to race/ethnicity.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you support temporary border checks introduced in Germany in 2025?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Supports restrictive measures, mildly xenophobic.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="1"> Do you believe deportations should increase for rejected asylum applicants?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 1</p>
+                <p><strong>Explanation:</strong> Policy stance, but can be anti-immigrant.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you think anti-Muslim sentiment is justified by security concerns?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Justifies Islamophobia.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="3"> Do you believe antisemitism is rising due to certain immigrant groups?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 3</p>
+                <p><strong>Explanation:</strong> Scapegoats immigrants for antisemitism.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you think xenophobic attitudes are a response to failed integration policies?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Justifies xenophobia by blaming policies/immigrants.</p>
+            </div>
+        </li>
+        <li><input type="checkbox" class="question" data-rating="2"> Do you believe surveys on racism in Germany exaggerate the issue?
+            <div class="explanation-item">
+                <p><strong>Rating:</strong> 2</p>
+                <p><strong>Explanation:</strong> Denies extent of racism, enabling it.</p>
+            </div>
+        </li>
     </ol>
     <button id="calculate">Calculate Score</button>
     <button id="showExplanations">Show Explanations</button>
     <div id="result"></div>
-    <div id="explanations"></div>
 
     <script>
-        const explanations = [
-            "Promotes cultural integration by recognizing immigrant contributions, countering racism (-2).",
-            "Neutral to positive; affirms equality if answered yes (-1).",
-            "Actively anti-racist by highlighting positive contributions of immigrants (-3).",
-            "Recognizes economic value of immigrants, countering negative stereotypes (-2).",
-            "Reinforces ethnic stereotypes favoring natives over immigrants (2).",
-            "Promotes fear-mongering and associates refugees with danger (3).",
-            "Links ethnicity to criminality, a classic racist trope (3).",
-            "Implies ethnic groups make areas inferior, promoting segregationist views (3).",
-            "Stereotypes an entire group as criminal based on language/ethnicity (3).",
-            "Classic antisemitic conspiracy theory (3).",
-            "Euphemistically references Nazi era, potentially glorifying fascism (2).",
-            "Stereotypes Muslim women as oppressed based on attire (2).",
-            "Negative ethnic stereotype without basis (2).",
-            "Judges an ethnic group's culture as inferior (2).",
-            "Reinforces exclusionary notions of 'true' Germanness (1).",
-            "Fuels resentment against immigrants, implying undeserved privilege (2).",
-            "Stereotypes group as unambitious, justifying exploitation (2).",
-            "Xenophobic discomfort with multiculturalism (2).",
-            "Implies natives are superior in cultural traits (1).",
-            "Admits to using slurs, highly racist (3).",
-            "Admits to ethnic slurs (3).",
-            "Trivializes historical trauma, but targeted at natives (1).",
-            "Supports anti-immigrant policies, often rooted in xenophobia (2).",
-            "Deeply racist stereotype against Roma people (3).",
-            "Minimizes historical accountability, tied to antisemitism (2).",
-            "Stereotypes refugees as uneducated and burdensome (3).",
-            "Gendered ethnic stereotype (2).",
-            "Excludes immigrant influences from 'true' culture (1).",
-            "Xenophobic view of immigration eroding national identity (2).",
-            "Negative stereotype based on ethnicity (3).",
-            "Implies divided loyalties, mildly xenophobic (1).",
-            "Downplays historical responsibility, can enable denialism (1).",
-            "Blames immigrants for integration issues (2).",
-            "Excludes immigrants from cultural ownership (1).",
-            "Blames refugees for cultural changes (2).",
-            "Positive stereotype, but reduces to ethnicity (1).",
-            "Promotes white/European supremacy in beauty standards (3).",
-            "Broad generalization associating region with extremism (3).",
-            "Antisemitic conspiracy (3).",
-            "Cultural superiority complex (3).",
-            "Antisemitic stereotype of greediness (2).",
-            "Neutral demographic fact, no racism implied (-3).",
-            "Neutral occupational fact (-3).",
-            "Promotes segregation and discrimination (3).",
-            "Xenophobic reaction to diversity (2).",
-            "Cultural hierarchy implying inferiority (3).",
-            "Racist avoidance based on ethnicity (3).",
-            "Reinforces stereotypes through actions (2).",
-            "Mild stereotyping, but could be insensitive (1).",
-            "Positive stereotype, but discriminatory (1).",
-            "Direct racism via slurs (3).",
-            "Ethnic slurs (3).",
-            "Slurs against Indians (3).",
-            "Racist insults (3).",
-            "Antisemitic slurs (3).",
-            "Weaponizes identity as slur (3).",
-            "Mocking physical traits, highly racist (3).",
-            "Stereotype based on hygiene myths (3).",
-            "Questions belonging based on appearance, 'othering' (3).",
-            "Reinforces negative stereotypes in practice (2).",
-            "Antisemitic scapegoating (3).",
-            "Ignorance, mildly culturally insensitive (1).",
-            "Can imply seeking justification for biases (1).",
-            "Neutral or educational, no racism (-2).",
-            "Holocaust denialism, deeply antisemitic (3).",
-            "Minimizes genocide, racist denial (3).",
-            "Often used in denialist arguments (2).",
-            "Mild regional stereotype (1).",
-            "Discriminatory based on accent/ethnicity (2).",
-            "'Othering' based on appearance (2).",
-            "Ignorance that homogenizes diverse cultures (1).",
-            "Scientific racism, highly offensive (3).",
-            "Stereotypes and blames a culture for pandemics (2).",
-            "Engages with racist content (3).",
-            "Negative hygiene stereotypes (3).",
-            "Implies discomfort with multiculturalism (2).",
-            "Supports anti-immigrant policies (2).",
-            "Nationalist xenophobia (3).",
-            "Islamophobic stance (3).",
-            "Anti-immigrant policy (2).",
-            "Can fuel anti-immigrant sentiment (1).",
-            "Blames refugees for economic issues (2).",
-            "Discriminates between 'good' and 'bad' immigrants (1).",
-            "Implies immigrants are at fault for integration (1).",
-            "Fear of cultural change due to race/ethnicity (3).",
-            "Supports restrictive measures, mildly xenophobic (1).",
-            "Policy stance, but can be anti-immigrant (1).",
-            "Justifies Islamophobia (3).",
-            "Scapegoats immigrants for antisemitism (3).",
-            "Justifies xenophobia by blaming policies/immigrants (2).",
-            "Denies extent of racism, enabling it (2)."
-        ];
-
         document.getElementById('calculate').addEventListener('click', function() {
             let score = 0;
             document.querySelectorAll('.question').forEach(function(checkbox) {
@@ -245,45 +591,12 @@
         });
 
         document.getElementById('showExplanations').addEventListener('click', function() {
-            const explanationsDiv = document.getElementById('explanations');
-            explanationsDiv.style.display = explanationsDiv.style.display === 'none' ? 'block' : 'none';
-            if (explanationsDiv.innerHTML === '') {
-                let score = 0;
-                const questions = document.querySelectorAll('.question');
-                let html = '<h2>Explanations</h2>';
-                questions.forEach((checkbox, index) => {
-                    if (checkbox.checked) {
-                        score += parseInt(checkbox.dataset.rating, 10);
-                    }
-                    html += `
-                        <div class="explanation-item">
-                            <h3>Question ${index + 1}: ${checkbox.parentElement.textContent}</h3>
-                            <p><strong>Rating:</strong> ${checkbox.dataset.rating}</p>
-                            <p><strong>Explanation:</strong> ${explanations[index]}</p>
-                        </div>
-                    `;
-                });
-                let category;
-                if (score <= -10) {
-                    category = 'Anti-Racist Ally';
-                } else if (score <= -1) {
-                    category = 'Inclusive Mindset';
-                } else if (score <= 14) {
-                    category = 'Neutral Observer';
-                } else if (score <= 34) {
-                    category = 'Unconsciously Biased';
-                } else if (score <= 54) {
-                    category = 'Casual Racist';
-                } else if (score <= 79) {
-                    category = 'Overt Racist';
-                } else if (score <= 104) {
-                    category = 'Extreme Racist';
-                } else {
-                    category = 'Neo-Nazi Level';
-                }
-                html = `<h2>Your score: ${score}<br>Category: ${category}</h2>` + html;
-                explanationsDiv.innerHTML = html;
-            }
+            const explanationItems = document.querySelectorAll('.explanation-item');
+            const isHidden = explanationItems[0].style.display === 'none';
+            explanationItems.forEach(item => {
+                item.style.display = isHidden ? 'block' : 'none';
+            });
+            this.textContent = isHidden ? 'Hide Explanations' : 'Show Explanations';
         });
     </script>
 </body>
